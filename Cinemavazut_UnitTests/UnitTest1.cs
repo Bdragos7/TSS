@@ -131,6 +131,10 @@ namespace Cinemavazut_UnitTests
             WebElement create = (WebElement)driver.FindElement(By.Name("create_util"));
             new Actions(driver).Click(create).Perform();
             System.Threading.Thread.Sleep(2000);
+
+            string actualUrl = "https://localhost:7231";
+            string expectedUrl = driver.Url;
+            Assert.AreEqual(expectedUrl,actualUrl);
         }
 
         [TestMethod]
@@ -144,6 +148,10 @@ namespace Cinemavazut_UnitTests
             username.SendKeys("cioflancezar@gmail.com");
             password.SendKeys("567890");
             login.Click();
+
+            string actualUrl = "https://localhost:7231";
+            string expectedUrl = driver.Url;
+            Assert.AreEqual(expectedUrl, actualUrl);
         }
         [TestMethod]
         public void TestEditUser()
@@ -160,7 +168,10 @@ namespace Cinemavazut_UnitTests
             driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori");
             int linii_tabel = driver.FindElements(By.CssSelector("td")).Count;
             Console.WriteLine(linii_tabel);
-            int id_util_test = 4 + (linii_tabel - 2) * 1000;
+
+            //--------------------------------------------------------
+            int id_util_test = 4 + (linii_tabel - 2) * 1000; //sa se modifice!!!!
+
 
             driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/Edit/"+id_util_test);
 
@@ -209,7 +220,9 @@ namespace Cinemavazut_UnitTests
 
             int linii_tabel = driver.FindElements(By.CssSelector("td")).Count;
             Console.WriteLine(linii_tabel);
-            int id_util_test = 4 + (linii_tabel - 2) * 1000; 
+
+            //---------------------------------------------------
+            int id_util_test = 4 + (linii_tabel - 2) * 1000; //modificat formula de delete
 
             driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/Delete/"+id_util_test);
 
