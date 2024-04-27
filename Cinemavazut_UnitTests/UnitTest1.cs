@@ -35,6 +35,8 @@ namespace Cinemavazut_UnitTests
             }
             else { Console.WriteLine("NU e corect"); }
 
+            
+
         }
         [TestMethod]
         public void TestLogin()
@@ -125,12 +127,12 @@ namespace Cinemavazut_UnitTests
             telefon.SendKeys(phone);
 
             WebElement data_nastere = (WebElement)driver.FindElement(By.Name("data_nastere"));
-            data_nastere.SendKeys("2002-01-22T00:00:00.000");
+            data_nastere.SendKeys("06-15-2002 1345 1");
 
             //Creare cont
             WebElement create = (WebElement)driver.FindElement(By.Name("create_util"));
             new Actions(driver).Click(create).Perform();
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(15000);
 
             string actualUrl = "https://localhost:7231";
             string expectedUrl = driver.Url;
@@ -140,7 +142,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestAdmin()
         {
-            driver.Navigate().GoToUrl("https://localhost:7231/SignIn");
+            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/SignIn");
 
             WebElement username = (WebElement)driver.FindElement(By.Id("email"));
             WebElement password = (WebElement)driver.FindElement(By.Id("parola"));
@@ -233,7 +235,7 @@ namespace Cinemavazut_UnitTests
         public void TestSearchBar()
         {
             driver.Navigate().GoToUrl("https://localhost:7231");
-            WebElement SearchString = (WebElement)driver.FindElement(By.Name("SearchString"));
+            WebElement SearchString = (WebElement)driver.FindElement(By.Name("buton_search"));
             WebElement SearchBtn = (WebElement)driver.FindElement(By.Name("buton_search"));
             SearchString.SendKeys("Filantropica");
             SearchBtn.Click();
