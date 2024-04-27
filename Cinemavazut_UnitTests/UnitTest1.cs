@@ -25,7 +25,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestTitle()
         {
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(2000);
             string titlu = driver.Title;
             
 
@@ -136,7 +136,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestAdmin()
         {
-            driver.Navigate().GoToUrl("https://localhost:7231/SignIn");
+            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/SignIn");
 
             WebElement username = (WebElement)driver.FindElement(By.Id("email"));
             WebElement password = (WebElement)driver.FindElement(By.Id("parola"));
@@ -220,8 +220,8 @@ namespace Cinemavazut_UnitTests
         public void TestSearchBar()
         {
             driver.Navigate().GoToUrl("https://localhost:7231");
-            WebElement SearchString = (WebElement)driver.FindElement(By.Name("SearchString"));
-            WebElement SearchBtn = (WebElement)driver.FindElement(By.Name("buton_search"));
+            WebElement SearchString = (WebElement)driver.FindElement(By.Name("buton_search"));
+            WebElement SearchBtn = (WebElement)driver.FindElement(By.ClassName("fa-search"));
             SearchString.SendKeys("Filantropica");
             SearchBtn.Click();
 
