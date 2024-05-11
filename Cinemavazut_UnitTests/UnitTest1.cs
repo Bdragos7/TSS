@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 
 
 namespace Cinemavazut_UnitTests
@@ -25,7 +26,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestTitle()
         {
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(2000);
             string titlu = driver.Title;
             
 
@@ -51,6 +52,7 @@ namespace Cinemavazut_UnitTests
             string actualUrl = "https://localhost:7231/";
             string expectedUrl = driver.Url;
             Assert.AreEqual(expectedUrl, actualUrl);
+          
         }
         [TestMethod]
         public void TestWatchList()
@@ -123,20 +125,23 @@ namespace Cinemavazut_UnitTests
 
             //numamr telefon
             WebElement telefon = (WebElement)driver.FindElement(By.Id("telefon"));
-            string phone = "1234567890";
+            string phone = "0733555777";
             telefon.SendKeys(phone);
 
             WebElement data_nastere = (WebElement)driver.FindElement(By.Name("data_nastere"));
-            data_nastere.SendKeys("06-15-2002 1345 1");
+            data_nastere.SendKeys("10092002");
+            data_nastere.SendKeys(Keys.Tab);
+            data_nastere.SendKeys("0230PM");
+
 
             //Creare cont
             WebElement create = (WebElement)driver.FindElement(By.Name("create_util"));
             new Actions(driver).Click(create).Perform();
-            System.Threading.Thread.Sleep(15000);
+            System.Threading.Thread.Sleep(2000);
 
-            string actualUrl = "https://localhost:7231";
+            string actualUrl = "https://localhost:7231/";
             string expectedUrl = driver.Url;
-            Assert.AreEqual(expectedUrl,actualUrl);
+            Assert.AreEqual(expectedUrl, actualUrl);
         }
 
         [TestMethod]
@@ -158,7 +163,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestEditUser()
         {
-            driver.Navigate().GoToUrl("https://localhost:7231/SignIn");
+            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/SignIn");
 
             WebElement username = (WebElement)driver.FindElement(By.Id("email"));
             WebElement password = (WebElement)driver.FindElement(By.Id("parola"));
@@ -168,21 +173,32 @@ namespace Cinemavazut_UnitTests
             login.Click();
 
             driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori");
-            int linii_tabel = driver.FindElements(By.CssSelector("td")).Count;
-            Console.WriteLine(linii_tabel);
 
-            //--------------------------------------------------------
-            int id_util_test = 4 + (linii_tabel - 2) * 1000; //sa se modifice!!!!
+            IList<IWebElement> allElement = driver.FindElements(By.TagName("td"));
+            int sw = 0;
+            foreach (IWebElement element in allElement)
+            {
+                string cellText = element.Text;
+                if (cellText == "ionpopescu@gmail.com")
+                {
+                    sw = 1;
+                }
 
-
-            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/Edit/"+id_util_test);
+                if (sw == 1 && cellText == "Edit | Details | Delete")
+                {
+                    IWebElement btn = element.FindElement(By.Name("edit"));
+                    btn.Click();
+                    break;
+                }
+            }
+            System.Threading.Thread.Sleep(2000);
 
             WebElement nume = (WebElement)driver.FindElement(By.Id("nume"));
             WebElement prenume = (WebElement)driver.FindElement(By.Id("prenume"));
             WebElement email = (WebElement)driver.FindElement(By.Id("email"));
             WebElement parola = (WebElement)driver.FindElement(By.Id("parola"));
             WebElement telefon = (WebElement)driver.FindElement(By.Id("telefon"));
-            WebElement data_nastere = (WebElement)driver.FindElement(By.Id("nastere"));
+            WebElement data_nastere = (WebElement)driver.FindElement(By.Id("data_nastere"));
             WebElement rol = (WebElement)driver.FindElement(By.Id("rol"));
             //discutabil aici ca nush cum sa trasmit ora inscrierii
             /*WebElement data_inscriere = (WebElement)driver.FindElement(By.Id("data_inscriere"));*/
@@ -190,17 +206,18 @@ namespace Cinemavazut_UnitTests
             string prenume_expected = "Popescu";
             string email_expected = "ionpopescu@gmail.com";
             string parola_expected = "Parola10@";
-            string telefon_expected = "1234567890";
-            string data_nastere_expected = "2002-01-22T00:00:00.000";
+            string telefon_expected = "0733555777";
+            string data_nastere_expected = "2002-10-09T00:00";
             string rol_expected = "1";
 
-            Assert.AreEqual(nume, nume_expected);
-            Assert.AreEqual(prenume, prenume_expected);
-            Assert.AreEqual(email, email_expected);
-            Assert.AreEqual(parola, parola_expected);
-            Assert.AreEqual(telefon, telefon_expected);
-            Assert.AreEqual(data_nastere, data_nastere_expected);
-            Assert.AreEqual(rol, rol_expected);
+
+            Assert.AreEqual(nume.GetAttribute("value"), nume_expected);
+            Assert.AreEqual(prenume.GetAttribute("value"), prenume_expected);
+            Assert.AreEqual(email.GetAttribute("value"), email_expected);
+            Assert.AreEqual(parola.GetAttribute("value"), parola_expected);
+            Assert.AreEqual(telefon.GetAttribute("value"), telefon_expected);
+            Assert.AreEqual(data_nastere.GetAttribute("value"), data_nastere_expected);
+            Assert.AreEqual(rol.GetAttribute("value"), rol_expected);
 
             //De continuat acasa sa vezi daca ii dai SendKeys pe nume completeaza sau scrie peste
 
@@ -209,7 +226,7 @@ namespace Cinemavazut_UnitTests
         [TestMethod]
         public void TestDeleteUser()
         {
-            driver.Navigate().GoToUrl("https://localhost:7231/SignIn");
+            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/SignIn");
 
             WebElement username = (WebElement)driver.FindElement(By.Id("email"));
             WebElement password = (WebElement)driver.FindElement(By.Id("parola"));
@@ -220,25 +237,43 @@ namespace Cinemavazut_UnitTests
 
             driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori");
 
-            int linii_tabel = driver.FindElements(By.CssSelector("td")).Count;
-            Console.WriteLine(linii_tabel);
+            IList<IWebElement> allElement = driver.FindElements(By.TagName("td"));
+            int sw = 0;
+            foreach (IWebElement element in allElement)
+            {
+                string cellText = element.Text;
+                if (cellText == "ionpopescu@gmail.com")
+                {
+                    sw = 1;
+                }
 
-            //---------------------------------------------------
-            int id_util_test = 4 + (linii_tabel - 2) * 1000; //modificat formula de delete
+                if (sw == 1 && cellText == "Edit | Details | Delete")
+                {
+                    IWebElement btn = element.FindElement(By.Name("delete"));
+                    btn.Click();
+                    break;
+                }
+            }
+            System.Threading.Thread.Sleep(2000);
 
-            driver.Navigate().GoToUrl("https://localhost:7231/Utilizatori/Delete/"+id_util_test);
+            WebElement deletebtn = (WebElement)driver.FindElement(By.Name("delete_btn"));
+            deletebtn.Click();
 
-            WebElement delete = (WebElement)driver.FindElement(By.Name("delete_btn"));
-            delete.Click();
+            string actualUrl = "https://localhost:7231/Utilizatori";
+            string expectedUrl = driver.Url;
+            Assert.AreEqual(expectedUrl, actualUrl);
         }
+
+
         [TestMethod]
         public void TestSearchBar()
         {
             driver.Navigate().GoToUrl("https://localhost:7231");
-            WebElement SearchString = (WebElement)driver.FindElement(By.Name("buton_search"));
-            WebElement SearchBtn = (WebElement)driver.FindElement(By.Name("buton_search"));
-            SearchString.SendKeys("Filantropica");
+            WebElement SearchString = (WebElement)driver.FindElement(By.Name("SearchString"));
+            WebElement SearchBtn = (WebElement)driver.FindElement(By.Name("ButtonSearch"));
+            SearchString.SendKeys("F");
             SearchBtn.Click();
+            System.Threading.Thread.Sleep(2000);
 
             string actualUrl = "https://localhost:7231/Filme/Search";
             string expectedUrl = driver.Url;
@@ -246,8 +281,8 @@ namespace Cinemavazut_UnitTests
             Assert.AreEqual(expectedUrl, actualUrl);
 
             string result = driver.FindElement(By.XPath("/ html / body / div[2] / main / div / div / h5")).Text;//ceva getText() de facut acasa
-
-            Assert.AreEqual(SearchString, result);
+            Console.WriteLine(result);
+            Assert.AreEqual("Filantropica", result);
 
 
 

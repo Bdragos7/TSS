@@ -20,3 +20,25 @@ D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Newtonsoft.
 D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\WebDriver.dll
 D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Newtonsoft.Json.xml
 D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\WebDriver.xml
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\selenium-manager\linux\selenium-manager
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\selenium-manager\macos\selenium-manager
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\selenium-manager\windows\selenium-manager.exe
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Cinemavazut_UnitTests.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Cinemavazut_UnitTests.pdb
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Newtonsoft.Json.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\WebDriver.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\Newtonsoft.Json.xml
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\bin\Debug\WebDriver.xml
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.csproj.AssemblyReference.cache
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.csproj.CoreCompileInputs.cache
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.csproj.CopyComplete
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.dll
+C:\MIHA\University\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.pdb
