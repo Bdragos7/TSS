@@ -453,50 +453,50 @@ namespace Cinemavazut_UnitTests
         }
 
 
-        // Comparatie Selenium cu ChatGPT
+                // Comparatie Selenium cu ChatGPT
         private string baseUrl = "https://localhost:7231";
-
+        
         [TestMethod]
         public void TestGPT_Login()
         {
             // Navigate to the login page
             driver.Navigate().GoToUrl(baseUrl + "/Utilizatori/SignIn");
-
+        
             // Fill in the login form
             driver.FindElement(By.Id("email")).SendKeys("iancumihaela@gmail.com");
             driver.FindElement(By.Id("parola")).SendKeys("123456");
-
+        
             // Submit the login form
             driver.FindElement(By.Id("SignIn")).Click();
-
+        
             // Wait for the main page to load (custom wait condition for URL change)
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(driver => driver.Url.StartsWith(baseUrl + "/"));
-
+        
             // Assert that the URL matches the main page URL
             Assert.AreEqual(baseUrl + "/", driver.Url);
         }
-
-
+        
+        
         [TestMethod]
         public void TestGPT_Search() //(string movieName) nu ii place parametrul
         {
             string movieName = "Filantropica";
-
+        
             // Navigate to the movie site
             driver.Navigate().GoToUrl(baseUrl);
-
+        
             // Locate the search bar and input the movie name
             IWebElement searchInput = driver.FindElement(By.Name("SearchString"));
             searchInput.SendKeys(movieName);
             searchInput.SendKeys(Keys.Enter);
-
+        
             // Wait for search results to load
             // You may need to wait for search results to load here
-
+        
             // Get the title of the first movie in the search results
             IWebElement firstResultTitle = driver.FindElement(By.XPath("/ html / body / div[2] / main / div / div / h5"));
-
+        
             // Verify if the first movie title corresponds to the provided movie name
             if (firstResultTitle.Text.Equals(movieName, StringComparison.OrdinalIgnoreCase))
             {
@@ -508,38 +508,38 @@ namespace Cinemavazut_UnitTests
                 // lipseste Assert.Fail(); in ver. GPT
             }
         }
-
-
+        
+        
         [TestMethod]
         public void TestGPT_Register()
         {
             // Navigate to the registration page
             driver.Navigate().GoToUrl(baseUrl + "/Utilizatori/Create");
-
+        
             // Fill in the registration form
             driver.FindElement(By.Name("nume")).SendKeys("John");
             driver.FindElement(By.Name("prenume")).SendKeys("Doe");
             driver.FindElement(By.Id("parola")).SendKeys("Example12//");
             driver.FindElement(By.Name("email")).SendKeys("john.doe@example.com");
             driver.FindElement(By.Id("telefon")).SendKeys("0034567890");
-
+        
             driver.FindElement(By.Name("data_nastere")).SendKeys("01-01-1990");
-
+        
             driver.FindElement(By.Name("data_nastere")).SendKeys(Keys.Tab); // Move to the next field
             driver.FindElement(By.Name("data_nastere")).SendKeys("1200PM");
-
+        
             // Scroll down to the submit button
             IWebElement submitButton = driver.FindElement(By.Name("create_util"));
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", submitButton);
-
+        
             // Submit the form
             // submitButton.Click(); // nu merge versiunea de la GPT
             new Actions(driver).Click(submitButton).Perform();
-
+        
             // Wait for the main page to load (custom wait condition for URL change)
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5000));
             wait.Until(driver => driver.Url.StartsWith(baseUrl + "/"));
-
+        
             // Assert that the URL matches the main page URL
             Assert.AreEqual(baseUrl + "/", driver.Url);
         }
@@ -549,6 +549,8 @@ namespace Cinemavazut_UnitTests
         //3 Teste Puppeteer
 
         /*PUPPETEER*/
+
+        
 
         [TestMethod]
         public async Task Test13_Puppeteer_Login()
