@@ -1,0 +1,4 @@
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+Cinemavazut_UnitTests/bin/Debug/Chrome/Win64-124.0.6367.60/chrome-win64/chrome.dll filter=lfs diff=lfs merge=lfs -text
+Cinemavazut_UnitTests/bin/Debug/ChromeHeadlessShell/Win64-124.0.6367.60/chrome-headless-shell-win64/chrome-headless-shell.exe filter=lfs diff=lfs merge=lfs -text

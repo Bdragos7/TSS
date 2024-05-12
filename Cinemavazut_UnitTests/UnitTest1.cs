@@ -6,7 +6,8 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using PuppeteerSharp;
+using System.Threading.Tasks;
 
 namespace Cinemavazut_UnitTests
 {
@@ -26,6 +27,8 @@ namespace Cinemavazut_UnitTests
         }
 
 
+
+
         [TestMethod]
         public void Test01_Run()
         {
@@ -38,6 +41,8 @@ namespace Cinemavazut_UnitTests
                 Console.WriteLine("Tiltu este corect");
             }
             else { Console.WriteLine("NU e corect"); }
+
+            
 
         }
 
@@ -54,6 +59,7 @@ namespace Cinemavazut_UnitTests
             string actualUrl = "https://localhost:7231/";
             string expectedUrl = driver.Url;
             Assert.AreEqual(expectedUrl, actualUrl);
+          
         }
 
 
@@ -83,6 +89,7 @@ namespace Cinemavazut_UnitTests
             catch (Exception NoSuchElementException)
             {
                 Console.WriteLine("Admin login didn't work. Administration not found!");
+                Console.WriteLine(NoSuchElementException);
                 Assert.Fail();
             }
 
@@ -452,10 +459,108 @@ namespace Cinemavazut_UnitTests
         }
 
 
+        //-------------------------------------------------------------------------------
+        //3 Teste Puppeteer
+
+        /*PUPPETEER*/
+
+        [TestMethod]
+        public async Task Test13_Login2()
+        {
+            //await new BrowserFetcher().DownloadAsync();
+
+            var browser = await Puppeteer.LaunchAsync(new LaunchOptions() { Headless = false });
+            //new tab
+            var page = await browser.NewPageAsync();
+
+            //login page
+            await page.GoToAsync("https://localhost:7231/Utilizatori/SignIn");
+
+            await page.TypeAsync("input[id=email]", "iancumihaela@gmail.com");
+            await page.TypeAsync("input[id=parola]", "123456");
+            await page.ClickAsync("input[id=SignIn]");
+            System.Threading.Thread.Sleep(2000); // prea rapid, nu apucase sa treaca la pagina de home
+
+            string actualURL = "https://localhost:7231/";
+            string expectedURL =  page.Url.ToString();
+
+            Assert.AreEqual(expectedURL, actualURL);
+
+            await browser.CloseAsync();
+        }
+
+
+        [TestMethod]
+        public async Task Test14_Admin2()
+        {
+            await new BrowserFetcher().DownloadAsync();
+
+            var browser = await Puppeteer.LaunchAsync(new LaunchOptions() { Headless = false, Args = new[] { "--start-maximized" } });
+            //new tab
+            var page = await browser.NewPageAsync();
+            await page.SetViewportAsync(new ViewPortOptions { Width = 1920, Height = 1080 });
+            //login page
+            await page.GoToAsync("https://localhost:7231/Utilizatori/SignIn");
+
+            await page.TypeAsync("input[id=email]", "cioflancezar@gmail.com");
+            await page.TypeAsync("input[id=parola]", "567890");
+            await page.ClickAsync("input[id=SignIn]");
+            System.Threading.Thread.Sleep(2000);
+
+            await page.ClickAsync("a#btn-admin.button");
+            string actualURL = "https://localhost:7231/Home/Admin";
+            System.Threading.Thread.Sleep(2000);
+            string expectedURL = page.Url.ToString();
+
+            Assert.AreEqual(expectedURL, actualURL);
+
+            await browser.CloseAsync();
+        }
+
+        
+
+        [TestMethod]
+        public async Task Test16_Logout2()
+        {
+            await new BrowserFetcher().DownloadAsync();
+
+            var browser = await Puppeteer.LaunchAsync(new LaunchOptions() { Headless = false, Args = new[] { "--start-maximized" } });
+            //new tab
+            var page = await browser.NewPageAsync();
+
+            //login page
+            await page.SetViewportAsync(new ViewPortOptions { Width = 1920, Height = 1080 });
+            await page.GoToAsync("https://localhost:7231/Utilizatori/SignIn");
+
+            await page.TypeAsync("input[id=email]", "iancumihaela@gmail.com");
+            await page.TypeAsync("input[id=parola]", "123456");
+            await page.ClickAsync("input[id=SignIn]");
+            System.Threading.Thread.Sleep(2000);
+            await page.ClickAsync("a.pfp");
+            System.Threading.Thread.Sleep(2000);
+            await page.ClickAsync("a.logout");
+            System.Threading.Thread.Sleep(2000);
+            await page.ClickAsync("a.pfp");
+            string actualURL = "https://localhost:7231/Utilizatori/SignIn";
+
+            string expectedURL = page.Url.ToString();
+
+            Assert.AreEqual(expectedURL, actualURL);
+
+            await browser.CloseAsync();
+        }
+
+
+
+
+
         [TestCleanup]
         public void Cleanup()
         {
             driver.Quit();
         }
+
+      
     }
+    
 }
