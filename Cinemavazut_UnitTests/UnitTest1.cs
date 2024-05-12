@@ -516,6 +516,7 @@ namespace Cinemavazut_UnitTests
             await browser.CloseAsync();
         }
 
+        
 
         [TestMethod]
         public async Task Test16_Logout2()
@@ -547,6 +548,8 @@ namespace Cinemavazut_UnitTests
 
             await browser.CloseAsync();
         }
+
+
 
 
 
