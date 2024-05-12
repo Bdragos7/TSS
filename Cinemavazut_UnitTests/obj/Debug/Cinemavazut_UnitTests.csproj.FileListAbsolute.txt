@@ -64,3 +64,22 @@ D:\Files\University\To-be-organized\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\o
 D:\Files\University\To-be-organized\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.csproj.CopyComplete
 D:\Files\University\To-be-organized\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.dll
 D:\Files\University\To-be-organized\ANUL4_S2\Proiect_TSS\Cinemavazut_UnitTests\obj\Debug\Cinemavazut_UnitTests.pdb
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Cinemavazut_UnitTests.dll.config
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Options.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\PuppeteerSharp.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Options.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\PuppeteerSharp.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\dragos\AN 4 SEM 2\TSS ( testare )\Cinemavazut_UnitTests\bin\Debug\System.Threading.Tasks.Extensions.xml
